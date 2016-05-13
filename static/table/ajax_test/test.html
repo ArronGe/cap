@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>交易主视图</title>
+	<link rel="stylesheet" type="text/css" href="/static/jquery/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="/static/jquery/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="/static/jquery/demo/demo.css">
+	<script type="text/javascript" src="/static/jquery/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="/static/jquery/jquery.zclip.min.js"></script>
+</head>
+
+<body class="easyui-layout">
+		<div data-options="region:'north',split:true,border:true,collapsible:false,noheader:true," title="" style="width:100%;height:50px;padding:0px;background:#E7EFFF;">
+			<h2 id="totalbutton" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-lc_star24',disabled:false,size:'large',plain:true"></h2>
+		</div>
+		<div data-options="region:'west',split:true,border:true,collapsible:false,noheader:true" title="" style="width:40%;padding:0px;background:#E7EFFF;">
+					<table id="dg_trade" class="easyui-datagrid" title=" 各合约交易情况" remoteSort=True 
+						data-options="
+							url:'/static/test/tradedata.json',
+							iconCls:'icon-lc_star16',
+							toolbar:'#tb_trade',
+							noheader:false,
+							fitColumns:true,
+							rownumbers:true,
+							singleSelect:true,
+							method:'get',
+							fit:'true'
+						"
+					>
+						<thead><tr>
+							<th data-options="field:'name',width:100,align:'left',resizable:1,sortable:'true',fit:true">名称</th>
+							<th data-options="field:'OrderCnt',width:100,align:'left',resizable:1,sortable:'true',fit:true">委托笔数</th>
+							<th data-options="field:'TradeCnt',width:100,align:'left',resizable:1,sortable:'true',fit:true">成交笔数</th>
+							<th data-options="field:'OrderFailCnt',width:100,align:'left',resizable:1,sortable:'true',fit:true">错单笔数</th>
+						</tr></thead>
+					</table>
+		</div>
+		<div data-options="region:'center',split:true,border:true,collapsible:false,noheader:true" title="" style="width:60%;padding:0px;background:#E7EFFF;">
+					<table id="dg_sum" class="easyui-datagrid" title=" 分类统计" remoteSort=True 
+						data-options="
+						url:'/static/json/tradedata/tradesumdata.json',
+						iconCls:'icon-lc_star16',
+						toolbar:'#tb_sum',
+						noheader:false,
+						fitColumns:true,
+						rownumbers:false,
+						singleSelect:true,
+						method:'get',
+						fit:'true'
+						"
+					>
+						<thead><tr>
+							<th data-options="field:'index',width:50,align:'left',resizable:1,sortable:'true',fit:true">序号</th>
+							<th data-options="field:'name',width:100,align:'left',resizable:1,sortable:'true',fit:true">名称</th>
+							<th data-options="field:'OrderCnt',width:100,align:'left',resizable:1,sortable:'true',fit:true,styler:OrderStyler">委托笔数</th>
+							<th data-options="field:'MaxOrderCnt',width:100,align:'left',resizable:1,sortable:'true',fit:true">委托峰值</th>
+							<th data-options="field:'TradeCnt',width:100,align:'left',resizable:1,sortable:'true',fit:true,styler:TradeStyler">成交笔数</th>
+							<th data-options="field:'MaxTradeCnt',width:100,align:'left',resizable:1,sortable:'true',fit:true">成交峰值</th>
+							<th data-options="field:'OrderFailCnt',width:100,align:'left',resizable:1,sortable:'true',fit:true">错单笔数</th>
+						</tr></thead>
+					</table>
+		</div>
+		<div id="tb_trade">
+			<a href="#" class="easyui-linkbutton" onclick="re_load_trade()" data-options="iconCls:'icon-reload',plain:true">刷新</a>
+			<a id="copy_trade" href="#" class="easyui-linkbutton" onclick="lc_copy_trade()" data-options="iconCls:'icon-save',plain:true">复制</a>
+		</div>
+		<div id="tb_sum">
+			<a href="#" class="easyui-linkbutton" onclick="re_load_sum()" data-options="iconCls:'icon-reload',plain:true">刷新</a>
+			<a id="copy_sum" href="#" class="easyui-linkbutton" onclick="lc_copy_sum()" data-options="iconCls:'icon-save',plain:true">复制</a>
+			<a href="#" class="easyui-linkbutton" onclick="lc_load_newrecord()" data-options="iconCls:'icon-lc_sms16',plain:true">天量短信</a>
+		</div>
+	<div id="huge_vol" class="easyui-dialog" title="Toolbar and Buttons" left="100px" top="10px" style="width:900px;height:640px;padding:10px" data-options="closed:true">
+		<div id="output" class="easyui-textbox" data-options="multiline:true,readonly:true,fit:true" style="width:100%;height:100%"></div>
+	</div>
+	<style type="text/css">
+		.datagrid-header-rownumber,
+		.datagrid-cell-rownumber {
+			width: 25px;
+			text-align: center;
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</body>
+</html>

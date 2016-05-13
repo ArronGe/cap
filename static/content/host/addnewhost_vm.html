@@ -1,0 +1,561 @@
+			<div id="content">
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+						<h2 class="page-title txt-color-blueDark">
+							<i class="fa fa-hdd-o"></i>  新增虚拟机
+						</h2>
+					</div>
+					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
+						<ul id="sparks" class="">
+							<li class="sparks-info">
+								<h5> wgq/zj/dl/ljz <span class="txt-color-blue">服务器数量</span></h5>
+								<div class="sparkline txt-color-blue hidden-mobile hidden-md hidden-sm">
+									1300, 1877, 2500, 2577
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- widget grid -->
+				<section id="widget-grid" class="">
+
+					<!-- row -->
+					<div class="row">
+
+						<article class="col-sm-12 col-md-12 col-lg-12">
+
+							<!-- Widget ID (each widget will need unique ID)-->
+							<div class="jarviswidget" id="wid-id-2" data-widget-editbutton="false" data-widget-deletebutton="false" >
+
+								<!-- widget options:
+								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false"> data-widget-editbutton="false" data-widget-deletebutton="false"
+								data-widget-colorbutton="false"
+								data-widget-editbutton="false"
+								data-widget-togglebutton="false"
+								data-widget-deletebutton="false"
+								data-widget-fullscreenbutton="false"
+								data-widget-custombutton="false"
+								data-widget-collapsed="true"
+								data-widget-sortable="false"
+
+								-->
+								<header>
+									<h2>向导 </h2>
+
+								</header>
+
+								<!-- widget div-->
+								<div>
+
+									<!-- widget edit box -->
+									<div class="jarviswidget-editbox">
+										<!-- This area used as dropdown edit box -->
+
+									</div>
+									<!-- end widget edit box -->
+
+									<!-- widget content -->
+									<div class="widget-body fuelux">
+
+										<div class="wizard"  id="vm_wizard">
+											<!--data-restrict="previous"-->
+											<ul class="steps">
+												<li data-target="#step1" class="active">
+													<span class="badge badge-info">1</span>主机配置<span class="chevron"></span>
+												</li>
+												<li data-target="#step2">
+													<span class="badge">2</span>网络配置<span class="chevron"></span>
+												</li>
+												<li data-target="#step3">
+													<span class="badge">3</span>发布基线<span class="chevron"></span>
+												</li>
+												<li data-target="#step4">
+													<span class="badge">4</span>升级补丁<span class="chevron"></span>
+												</li>
+												<li data-target="#step5">
+													<span class="badge">5</span>修改密码<span class="chevron"></span>
+												</li>
+											</ul>
+											<div class="actions">
+												<button type="button" class="btn btn-sm btn-primary btn-prev">
+													<i class="fa fa-arrow-left"></i>Prev
+												</button>
+												<button type="button" onclick="notfinish()" class="btn btn-sm btn-success btn-next" data-last="Finish">
+													Next<i class="fa fa-arrow-right"></i>
+												</button>
+											</div>
+										</div>
+										<div class="step-content col-md-7" >
+											<form class="form-horizontal" id="fuelux-wizard" method="post" >
+												<div class="step-pane active" id="step1">
+													<!-- wizard form starts here -->
+												    <div class="col-sx-12" style="height:20px"></div><!--控制高度 -->
+													  <fieldset>
+																<div  class="form-group"><!--选择网络区域 -->
+                                    <label class="col-md-3 control-label">网络区域</label>
+														        <div class="col-lg-9">
+														            <div class="btn-group" data-toggle="buttons">
+														        		    <label class="btn btn-default">
+														        		    	<input type="radio" name="NetArea" value="YWHX" />
+														        		    	业务核心 </label>
+														        		    <label class="btn btn-default">
+														        		    	<input type="radio" name="NetArea" value="YWGL" />
+														        		    	业务隔离 </label>
+														        		    <label class="btn btn-default">
+														        		    	<input type="radio" name="NetArea" value="BGGL" />
+														        		    	办公隔离 </label>
+														            </div>
+														        </div>
+																</div>
+																<div  class="form-group"><!--宿主机动态生成 js里写的-->
+																		<label class="col-md-3 control-label" >宿主机</label>
+																		<div class="col-md-9" id="NetArea_Host">
+
+																		</div>
+																</div>
+																<div  class="form-group"><!--下拉框里选择镜像 -->
+																		<label class="col-md-3 control-label" >镜像</label>
+																		<div class="col-md-9" >
+																		<div class="dropdown-toggle " data-toggle="dropdown">
+																			  <img src="./img/plus.png"/>
+																		    <input type="button" class="btn btn-default " >
+                                           <span class="caret"></span>
+                                           <span class="sr-only">切换下拉菜单</span>
+                                        </input>
+                                    </div>
+                                       <ul class="dropdown-menu" role="menu" style="margin-left:3%;width:200px">
+                                          <li><a href="#">功能</a></li>
+                                          <li><a href="#">另一个功能</a></li>
+                                          <li><a href="#">其他</a></li>
+                                          <li class="divider"></li>
+                                          <li><a href="#">分离的链接</a></li>
+                                       </ul>
+																		</div>
+																</div>
+																<div  class="form-group">
+																		<label class="col-md-2 control-label" >请选择网络区域  :</label>
+																		<div class="col-md-4">
+																			<select style="width:100%" class="select2" id="select2_1">
+																					<optgroup label="数据中心">
+																						<option value="WGQ">外高桥数据中心</option>
+																						<option value="ZJ">张江数据中心</option>
+																						<option value="LJZ">陆家嘴数据中心</option>
+																						<option value="DL">大连数据中心</option>
+																					</optgroup>
+																					<optgroup label="所属网络">
+																						<option value="BG">办公网</option>
+																						<option value="YW">业务网</option>
+																					</optgroup>
+																					<optgroup label="宿主服务器">
+																						<option value="VM1">VM1</option>
+																						<option value="VM2">VM2</option>
+																						<option value="VM3">VM3</option>
+																					</optgroup>
+																			</select>
+																		</div>
+																</div>
+
+																<div  class="form-group">
+																		<label class="col-md-2 control-label" >请选择网络区域  :</label>
+																		<div class="col-md-4">
+																			<select style="width:100%" class="select2" id="select2_1">
+																					<optgroup label="数据中心">
+																						<option value="WGQ">外高桥数据中心</option>
+																						<option value="ZJ">张江数据中心</option>
+																						<option value="LJZ">陆家嘴数据中心</option>
+																						<option value="DL">大连数据中心</option>
+																					</optgroup>
+																					<optgroup label="所属网络">
+																						<option value="BG">办公网</option>
+																						<option value="YW">业务网</option>
+																					</optgroup>
+																					<optgroup label="宿主服务器">
+																						<option value="VM1">VM1</option>
+																						<option value="VM2">VM2</option>
+																						<option value="VM3">VM3</option>
+																					</optgroup>
+																			</select>
+																		</div>
+																</div>
+
+													  		<div  class="form-group">
+												            <label class="col-md-2 control-label" >请设置计算机名  :</label>
+												            <div class="col-md-4">
+												            	<input class="form-control" placeholder="输入计算机名" type="text">
+												            </div>
+												            <div class="col-md-6"><button class="btn btn-default" onclick="CheckHostName()">检查是否重名</button></div>
+												        </div>
+	                              <div class="form-group"><!--选操作系统的radiobox -->
+													          <label class="col-md-2 control-label" >请选择操作系统  :</label>
+													          <div class="col-md-10">
+														            <label class="radio radio-inline">
+															              <input type="radio" class="radiobox style-0"  name="style-0a">
+															              <span>RH5.5</span>
+														            </label>
+														            <label class="radio radio-inline">
+															              <input type="radio" class="radiobox style-0"  name="style-0a">
+															              <span>RH6.3</span>
+														            </label>
+														            <label class="radio radio-inline">
+															              <input type="radio" class="radiobox style-0"  name="style-0a">
+															              <span>Win XP</span>
+														            </label>
+														            <label class="radio radio-inline">
+														                <input type="radio" class="radiobox style-0"  name="style-0a">
+														                <span>Win 7</span>
+														            </label>
+														            <label class="radio radio-inline">
+														                <input type="radio" class="radiobox style-0"  name="style-0a">
+														                <span>Win Server 2003</span>
+														            </label>
+														            <label class="radio radio-inline">
+														                <input type="radio" class="radiobox style-0"  name="style-0a">
+														                <span>Win Server 2008</span>
+														            </label>
+													          </div>
+												        </div>
+												        <div class="form-group"><!--选择存储 -->
+												            <label class="col-md-2 control-label" style="margin-top:2%">请选择存储  :</label>
+												                <div style="float:left;margin-top:2%" >
+												                    <label class="radio radio-inline" style="width:100px;margin-left:20%">
+															                  <input type="radio" class="radiobox style-0"  name="datastore">
+															                  <span>DataStore1</span>
+														                </label>
+														            </div>
+														            <div class="col-md-1">
+										                        <canvas id="doughnutChart" height="10" style=";width:90px;height:90px"></canvas>
+
+										                    </div>
+													              <div style="float:left;margin-top:2%;margin-left:2%">
+													              		<label class="radio radio-inline">
+															                  <input type="radio" class="radiobox style-0" name="datastore" >
+															                  <span>DataStore2</span>
+														                </label>
+													              </div>
+													              <div class="col-md-1">
+										                        <canvas id="doughnutChart1" height="9" style=";width:90px;height:90px"></canvas>
+										                    </div>
+												        </div>
+												        <div class="form-group"><!--选择硬盘大小 -->
+												            <label class="col-md-2 control-label" >请选择硬盘大小  :</label>
+												            <div class="col-md-6" style="margin-top:0.5%">
+														         <input type="text" class="slider slider-default" id="sa4" value="1"
+														         data-slider-min="1"
+														         data-slider-max="2048"
+														         data-slider-selection = "before"
+														         data-slider-tooltip = "show"
+														         data-slider-handle="round">
+													          </div>
+												        </div>
+												        <div class="form-group"><!--选择cpu大小 -->
+												            <label class="col-md-2 control-label" >请选择CPU大小  :</label>
+												            <div class="col-md-6" style="margin-top:0.5%">
+														        <input type="text" class="slider slider-default" id="sa_cpu" value="1"
+														         data-slider-min="1"
+														         data-slider-max="32"
+														         data-slider-selection = "before"
+														         data-slider-tooltip = "show"
+														         data-slider-handle="round">
+													          </div>
+												        </div>
+												        <div class="form-group"><!--所属相关信息 -->
+												            <label class="col-md-2 control-label" style="margin-top:1%">所属信息  :</label>
+												            <div class="col-md-6" style="margin-top:0.5%">
+												                <label>请分别选择:所属数据中心，所属网络，所属宿主机</label>
+													                  <select multiple style="width:100%" class="select2" id="select2_1">
+<i class="fa fa-user" ></i>
+													                      <optgroup label="数据中心">
+													                      	<option value="WGQ">外高桥数据中心</option>
+													                      	<option value="ZJ">张江数据中心</option>
+													                      	<option value="LJZ">陆家嘴数据中心</option>
+													                      	<option value="DL">大连数据中心</option>
+													                      </optgroup>
+													                      <optgroup label="所属网络">
+													                      	<option value="BG">办公网</option>
+													                      	<option value="YW">业务网</option>
+													                      </optgroup>
+													                      <optgroup label="宿主服务器">
+													                      	<option value="VM1">VM1</option>
+													                      	<option value="VM2">VM2</option>
+													                      	<option value="VM3">VM3</option>
+													                      </optgroup>
+													                  </select>
+				                            </div>
+												        </div>
+
+													  </fieldset>
+												</div>
+
+												<div class="step-pane" id="step2">
+													<h3><strong>Step 2 </strong> - Alerts</h3>
+
+													<div class="alert alert-warning fade in">
+														<button class="close" data-dismiss="alert">
+															×
+														</button>
+														<i class="fa-fw fa fa-warning"></i>
+														<strong>Warning</strong> Your monthly traffic is reaching limit.
+													</div>
+
+													<div class="alert alert-success fade in">
+														<button class="close" data-dismiss="alert">
+															×
+														</button>
+														<i class="fa-fw fa fa-check"></i>
+														<strong>Success</strong> The page has been added.
+													</div>
+
+													<div class="alert alert-info fade in">
+														<button class="close" data-dismiss="alert">
+															×
+														</button>
+														<i class="fa-fw fa fa-info"></i>
+														<strong>Info!</strong> You have 198 unread messages.
+													</div>
+
+													<div class="alert alert-danger fade in">
+														<button class="close" data-dismiss="alert">
+															×
+														</button>
+														<i class="fa-fw fa fa-times"></i>
+														<strong>Error!</strong> The daily cronjob has failed.
+													</div>
+
+												</div>
+
+												<div class="step-pane" id="step3">
+													<h3><strong>Step 3 </strong> - Wizard continued</h3>
+													<br>
+													<br>
+													<h1 class="text-center text-primary"> This will be your Step 3 </h1>
+													<br>
+													<br>
+													<br>
+													<br>
+												</div>
+
+												<div class="step-pane" id="step4">
+													<h3><strong>Step 4 </strong> - Wizard continued...</h3>
+													<br>
+													<br>
+													<h1 class="text-center text-danger"> This will be your Step 4 </h1>
+													<br>
+													<br>
+													<br>
+													<br>
+												</div>
+
+												<div class="step-pane" id="step5">
+													<h3><strong>Step 5 </strong> - Finished!</h3>
+													<br>
+													<br>
+													<h1 class="text-center text-success"><i class="fa fa-check"></i> Congratulations!
+													<br>
+													<small>Click finish to end wizard</small></h1>
+													<br>
+													<br>
+													<br>
+													<br>
+												</div>
+
+											</form>
+										</div>
+										<div class="col-md-5" style="height:500Px;background-color:green">
+											
+										</div>
+
+									</div>
+									<!-- end widget content -->
+
+								</div>
+								<!-- end widget div -->
+
+							</div>
+							<!-- end widget -->
+
+						</article>
+						<!-- WIDGET END -->
+
+					</div>
+
+					<!-- end row -->
+
+					<!-- end row -->
+
+				</section>
+				<!-- end widget grid -->
+
+			</div>
+			<!--图表-->
+			<!-- END MAIN CONTENT -->
+
+		</div>
+		<!-- END SHORTCUT AREA -->
+
+		<!--================================================== -->
+
+		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
+		<script src="js/plugin/chartjs/chart.min.js"></script>
+
+
+
+
+		<!-- PAGE RELATED PLUGIN(S) -->
+		<script src="js/plugin/datatables/jquery.dataTables.min.js"></script>
+		<script src="js/plugin/datatables/dataTables.colVis.min.js"></script>
+		<script src="js/plugin/datatables/dataTables.tableTools.min.js"></script>
+		<script src="js/plugin/datatables/dataTables.bootstrap.min.js"></script>
+		<script src="js/plugin/datatable-responsive/datatables.responsive.min.js"></script>
+		<script src="js/plugin/jqgrid/jquery.jqGrid.min.js"></script>
+		<script src="js/plugin/jqgrid/grid.locale-en.min.js"></script>
+		<script src="js/plugin/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+		<script src="js/plugin/fuelux/wizard/wizard.min.js"></script>
+		<script src="js/plugin/maxlength/bootstrap-maxlength.min.js"></script>
+		<script src="js/plugin/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+		<script src="js/plugin/clockpicker/clockpicker.min.js"></script>
+		<script src="js/plugin/bootstrap-tags/bootstrap-tagsinput.min.js"></script>
+		<script src="js/plugin/noUiSlider/jquery.nouislider.min.js"></script>
+		<script src="js/plugin/ion-slider/ion.rangeSlider.min.js"></script>
+		<script src="js/plugin/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+		<script src="js/plugin/colorpicker/bootstrap-colorpicker.min.js"></script>
+		<script src="js/plugin/knob/jquery.knob.min.js"></script>
+		<script src="js/plugin/x-editable/moment.min.js"></script>
+		<script src="js/plugin/x-editable/jquery.mockjax.min.js"></script>
+		<script src="js/plugin/x-editable/x-editable.min.js"></script>
+		<script src="js/plugin/typeahead/typeahead.min.js"></script>
+		<script src="js/plugin/typeahead/typeaheadjs.min.js"></script>
+		<script type="text/javascript">
+
+
+		// DO NOT REMOVE : GLOBAL FUNCTIONS!
+
+		$(document).ready(function() {
+
+			pageSetUp();
+//      根据页面上所选的网络区域，来更改接下来选择宿主机的选项
+        $("input[name='NetArea']").change(function(){
+        	var netarea = $("input[name='NetArea']:checked").val();
+        	var nav="<div class='btn-group' data-toggle='buttons'>"       +
+									"<label class='btn btn-default'>"                     +
+									"<input type='radio' name='NetAre2' value='YWHX' \/>" +
+									netarea+"-VM1<\/label>"                               +
+									"<label class='btn btn-default'>"                     +
+									"<input type='radio' name='NetAre2' value='YWGL' \/>" +
+									netarea+"-VM2<\/label>"                               +
+									"<label class='btn btn-default'>"                     +
+									"<input type='radio' name='NetAre2' value='BGGL' \/>" +
+									netarea+"-VM3<\/label>"                               +
+									"<\/div>";
+        	$("#NetArea_Host").html(nav);
+        	})
+
+			  $('#bootstrap-wizard-1').bootstrapWizard({
+			    'tabClass': 'form-wizard',
+			    'onNext': function (tab, navigation, index) {
+			      var $valid = $("#wizard-1").valid();
+			      if (!$valid) {
+			        $validator.focusInvalid();
+			        return false;
+			      } else {
+			        $('#bootstrap-wizard-1').find('.form-wizard').children('li').eq(index - 1).addClass(
+			          'complete');
+			        $('#bootstrap-wizard-1').find('.form-wizard').children('li').eq(index - 1).find('.step')
+			        .html('<i class="fa fa-check"></i>');
+			      }
+			    }
+			  });
+
+
+			// fuelux wizard
+			  var wizard = $('.wizard').wizard();
+
+			  wizard.on('finished', function (e, data) {
+			    //$("#fuelux-wizard").submit();
+			    //console.log("submitted!");
+
+			    $.smallBox({
+			      title: "Congratulations! Your form was submitted",
+			      content: "<i class='fa fa-clock-o'></i> <i>1 seconds ago...</i>",
+			      color: "#5F895F",
+			      iconSmall: "fa fa-check bounce animated",
+			      timeout: 4000
+			    });
+
+			  });
+
+			    var doughnutOptions = {
+				    //Boolean - Whether we should show a stroke on each segment
+				    segmentShowStroke : true,
+				    //String - The colour of each segment stroke
+				    segmentStrokeColor : "#FFF",
+				    //Number - The width of each segment stroke
+				    segmentStrokeWidth : 2,
+				    //Number - The percentage of the chart that we cut out of the middle
+				    percentageInnerCutout : 40, // This is 0 for Pie charts
+				    //Number - Amount of animation steps
+				    animationSteps : 200,
+				    //String - Animation easing effect
+				    animationEasing : "easeOutBounce",
+				    //Boolean - Whether we animate the rotation of the Doughnut
+				    animateRotate : true,
+				    //Boolean - Whether we animate scaling the Doughnut from the centre
+				    animateScale : false,
+				    //Boolean - Re-draw chart on page resize
+			        responsive: true,
+				    //String - A legend template
+				    legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+			    };
+
+			    var doughnutData = [
+				   {
+				        value: "1.5",
+				        color:"rgba(220,220,220,0.8)",
+				        highlight: "rgba(220,220,220,0.7)",
+				        label: "已用(TB)"
+				    },
+				    {
+				        value: "0.5",
+				        color: "rgba(110,255,0,0.8)",
+				        highlight: "rgba(151,187,205,0.8)",
+				        label: "可用(TB)"
+				    }
+			    ];
+			    var doughnutOptions1 = {
+				    segmentShowStroke : true,
+				    segmentStrokeColor : "#FFF",
+				    segmentStrokeWidth : 2,
+				    percentageInnerCutout : 0, // This is 0 for Pie charts
+				    animationSteps : 200,
+				    animationEasing : "easeOutBounce",
+				    animateRotate : true,
+				    animateScale : false,
+			        responsive: true,
+				    legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+			    };
+			    var doughnutData1 = [
+				   {
+				        value: "0.9",
+				        color:"rgba(220,220,220,0.8)",
+				        label: "已用(TB)"
+				    },
+				    {
+				        value: "1.1",
+				        color: "rgba(110,255,0,1)",
+				        label: "可用(TB)"
+				    }
+			    ];
+			    // render chart
+			    var ctx = document.getElementById("doughnutChart").getContext("2d");
+			    var myNewChart = new Chart(ctx).Doughnut(doughnutData, doughnutOptions);
+          var ctx1 = document.getElementById("doughnutChart1").getContext("2d");
+			    var myNewChart = new Chart(ctx1).Doughnut(doughnutData1, doughnutOptions1);
+
+
+		})
+
+
+		</script>
+

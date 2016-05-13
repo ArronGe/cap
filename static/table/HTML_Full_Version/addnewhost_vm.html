@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+
+		<title> SmartAdmin </title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Basic Styles -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
+
+		<!-- SmartAdmin Styles : Caution! DO NOT change the order -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production-plugins.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-skins.min.css">
+
+		<!-- SmartAdmin RTL Support -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-rtl.min.css">
+
+		<link rel="stylesheet" type="text/css" media="screen" href="css/demo.min.css">
+
+		<!-- FAVICONS -->
+		<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+	</head>
+	<body class="">
+		<!-- HEADER -->
+		<header id="header">
+			<div id="logo-group">
+
+				<!-- PLACE YOUR LOGO HERE -->
+				<span id="logo"> <img src="img/logo.png" alt="SmartAdmin"> </span>
+				<!-- END LOGO PLACEHOLDER -->
+
+				<span id="activity" class="activity-dropdown"> <i class="fa fa-user"></i> <b class="badge"> 21 </b> </span>
+
+				<!-- AJAX-DROPDOWN : control this dropdown height, look and feel from the LESS variable file -->
+				<div class="ajax-dropdown">
+
+					<!-- the ID links are fetched via AJAX to the ajax container "ajax-notifications" -->
+					<div class="btn-group btn-group-justified" data-toggle="buttons">
+						<label class="btn btn-default">
+							<input type="radio" name="activity" id="ajax/notify/mail.html">
+							Msgs (14) </label>
+						<label class="btn btn-default">
+							<input type="radio" name="activity" id="ajax/notify/notifications.html">
+							notify (3) </label>
+						<label class="btn btn-default">
+							<input type="radio" name="activity" id="ajax/notify/tasks.html">
+							Tasks (4) </label>
+					</div>
+
+					<!-- notification content -->
+					<div class="ajax-notifications custom-scroll">
+
+						<div class="alert alert-transparent">
+							<h4>Click a button to show messages here</h4>
+							This blank page message helps protect your privacy, or you can show the first message here automatically.
+						</div>
+
+						<i class="fa fa-lock fa-4x fa-border"></i>
+
+					</div>
+					<!-- end notification content -->
+
+					<!-- footer: refresh area -->
+					<span> Last updated on: 12/12/2013 9:43AM
+						<button type="button" data-loading-text="<i class='fa fa-refresh fa-spin'></i> Loading..." class="btn btn-xs btn-default pull-right">
+							<i class="fa fa-refresh"></i>
+						</button> </span>
+					<!-- end footer -->
+
+				</div>
+				<!-- END AJAX-DROPDOWN -->
+			</div>
+
+			<!-- projects dropdown -->
+			<div class="project-context hidden-xs">
+
+				<span class="label">Projects:</span>
+				<span class="project-selector dropdown-toggle" data-toggle="dropdown">Recent projects <i class="fa fa-angle-down"></i></span>
+
+				<!-- Suggestion: populate this list with fetch and push technique -->
+				<ul class="dropdown-menu">
+					<li>
+						<a href="javascript:void(0);">Online e-merchant management system - attaching integration with the iOS</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">Notes on pipeline upgradee</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">Assesment Report for merchant account</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="javascript:void(0);"><i class="fa fa-power-off"></i> Clear</a>
+					</li>
+				</ul>
+				<!-- end dropdown-menu-->
+
+			</div>
+			<!-- end projects dropdown -->
+
+			<!-- pulled right: nav area -->
+			<div class="pull-right">
+
+				<!-- collapse menu button -->
+				<div id="hide-menu" class="btn-header pull-right">
+					<span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
+				</div>
+				<!-- end collapse menu -->
+
+				<!-- #MOBILE -->
+				<!-- Top menu profile link : this shows only when top menu is active -->
+				<ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
+					<li class="">
+						<a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown">
+							<img src="img/avatars/sunny.png" alt="John Doe" class="online" />
+						</a>
+						<ul class="dropdown-menu pull-right">
+							<li>
+								<a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0"><i class="fa fa-cog"></i> Setting</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="profile.html" class="padding-10 padding-top-0 padding-bottom-0"> <i class="fa fa-user"></i> <u>P</u>rofile</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="toggleShortcut"><i class="fa fa-arrow-down"></i> <u>S</u>hortcut</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="launchFullscreen"><i class="fa fa-arrows-alt"></i> Full <u>S</u>creen</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="login.html" class="padding-10 padding-top-5 padding-bottom-5" data-action="userLogout"><i class="fa fa-sign-out fa-lg"></i> <strong><u>L</u>ogout</strong></a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				<!-- logout button -->
+				<div id="logout" class="btn-header transparent pull-right">
+					<span> <a href="login.html" title="Sign Out" data-action="userLogout" data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i class="fa fa-sign-out"></i></a> </span>
+				</div>
+				<!-- end logout button -->
+
+				<!-- search mobile button (this is hidden till mobile view port) -->
+				<div id="search-mobile" class="btn-header transparent pull-right">
+					<span> <a href="javascript:void(0)" title="Search"><i class="fa fa-search"></i></a> </span>
+				</div>
+				<!-- end search mobile button -->
+
+				<!-- input: search field -->
+				<form action="search.html" class="header-search pull-right">
+					<input id="search-fld"  type="text" name="param" placeholder="Find reports and more" data-autocomplete='[
+					"ActionScript",
+					"AppleScript",
+					"Asp",
+					"BASIC",
+					"C",
+					"C++",
+					"Clojure",
+					"COBOL",
+					"ColdFusion",
+					"Erlang",
+					"Fortran",
+					"Groovy",
+					"Haskell",
+					"Java",
+					"JavaScript",
+					"Lisp",
+					"Perl",
+					"PHP",
+					"Python",
+					"Ruby",
+					"Scala",
+					"Scheme"]'>
+					<button type="submit">
+						<i class="fa fa-search"></i>
+					</button>
+					<a href="javascript:void(0);" id="cancel-search-js" title="Cancel Search"><i class="fa fa-times"></i></a>
+				</form>
+				<!-- end input: search field -->
+
+				<!-- fullscreen button -->
+				<div id="fullscreen" class="btn-header transparent pull-right">
+					<span> <a href="javascript:void(0);" data-action="launchFullscreen" title="Full Screen"><i class="fa fa-arrows-alt"></i></a> </span>
+				</div>
+				<!-- end fullscreen button -->
+
+				<!-- #Voice Command: Start Speech -->
+				<div id="speech-btn" class="btn-header transparent pull-right hidden-sm hidden-xs">
+					<div>
+						<a href="javascript:void(0)" title="Voice Command" data-action="voiceCommand"><i class="fa fa-microphone"></i></a>
+						<div class="popover bottom"><div class="arrow"></div>
+							<div class="popover-content">
+								<h4 class="vc-title">Voice command activated <br><small>Please speak clearly into the mic</small></h4>
+								<h4 class="vc-title-error text-center">
+									<i class="fa fa-microphone-slash"></i> Voice command failed
+									<br><small class="txt-color-red">Must <strong>"Allow"</strong> Microphone</small>
+									<br><small class="txt-color-red">Must have <strong>Internet Connection</strong></small>
+								</h4>
+								<a href="javascript:void(0);" class="btn btn-success" onclick="commands.help()">See Commands</a>
+								<a href="javascript:void(0);" class="btn bg-color-purple txt-color-white" onclick="$('#speech-btn .popover').fadeOut(50);">Close Popup</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end voice command -->
+
+				<!-- multiple lang dropdown : find all flags in the flags page -->
+				<ul class="header-dropdown-list hidden-xs">
+					<li>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="img/blank.gif" class="flag flag-us" alt="United States"> <span> English (US) </span> <i class="fa fa-angle-down"></i> </a>
+						<ul class="dropdown-menu pull-right">
+							<li class="active">
+								<a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-us" alt="United States"> English (US)</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-fr" alt="France"> Français</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-es" alt="Spanish"> Español</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-de" alt="German"> Deutsch</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-jp" alt="Japan"> 日本語</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-cn" alt="China"> 中文</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-it" alt="Italy"> Italiano</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-pt" alt="Portugal"> Portugal</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-ru" alt="Russia"> Русский язык</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-kr" alt="Korea"> 한국어</a>
+							</li>
+
+						</ul>
+					</li>
+				</ul>
+				<!-- end multiple lang -->
+
+			</div>
+			<!-- end pulled right: nav area -->
+
+		</header>
+		<!-- END HEADER -->
+
+		<!-- Left panel : Navigation area -->
+		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
+		<aside id="left-panel">
+
+			<!-- User info -->
+			<div class="login-info">
+				<span> <!-- User image size is adjusted inside CSS, it should stay as it -->
+
+					<a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
+						<img src="img/avatars/sunny.png" alt="me" class="online" />
+						<span>
+							john.doe
+						</span>
+						<i class="fa fa-angle-down"></i>
+					</a>
+
+				</span>
+			</div>
+			<!-- end user info -->
+
+			<nav>
+				<!--
+				NOTE: Notice the gaps after each icon usage <i></i>..
+				Please note that these links work a bit different than
+				traditional href="" links. See documentation for details.
+				-->
+
+				<ul>
+					<li>
+						<a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span></a>
+						<ul>
+							<li>
+								<a href="index.html" title="Dashboard"><span class="menu-item-parent">Analytics Dashboard</span></a>
+							</li>
+							<li class="">
+								<a href="dashboard-social.html" title="Dashboard"><span class="menu-item-parent">Social Wall</span></a>
+							</li>
+						</ul>
+					</li>
+					<li class="top-menu-invisible active">
+						<a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span class="menu-item-parent">主机</span></a>
+						<ul>
+							<li class="">
+								<a  title="Dashboard" href="hostinfo.html"><i class="fa fa-lg fa-fw fa-gear"></i> <span class="menu-item-parent">主机列表</span></a>
+							</li>
+							<li>
+								<a title="Dashboard"><i class="fa fa-lg fa-fw fa-picture-o"></i> <span class="menu-item-parent">新增主机</span></a>
+                <ul>
+                	  <li  class="active">
+                	      <a><i class="fa fa-hdd-o"></i>虚拟机</a>
+                	  </li>
+                	  <li>
+                	      <a href="addnewhost_phm.html"><i class="fa fa-laptop"></i>物理机</a>
+                	  </li>
+                </ul>
+							</li>
+						</ul>
+					</li>
+					<!--主机-->
+					<li>
+						<a ><i class="fa fa-lg fa-fw fa-delicious"></i> <span class="menu-item-parent">网络</span> </a>
+					</li>
+					<li>
+						<a href="#"><i class="fa fa-lg fa-fw fa-gears"></i> <span class="menu-item-parent">应用</span></a>
+
+					</li>
+					<li>
+						<a href="#"><i class="fa fa-lg fa-fw fa-database"></i> <span class="menu-item-parent">数据库</span></a>
+					</li>
+
+				</ul>
+			</nav>
+
+
+			<span class="minifyme" data-action="minifyMenu">
+				<i class="fa fa-arrow-circle-left hit"></i>
+			</span>
+		</aside>
+		<!-- END NAVIGATION -->
+
+		<!-- MAIN PANEL -->
+		<div id="main" role="main">
+
+			<!-- RIBBON -->
+			<div id="ribbon">
+
+				<span class="ribbon-button-alignment">
+					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
+						<i class="fa fa-refresh"></i>
+					</span>
+				</span>
+				<!--刷新按钮 -->
+
+				<!-- breadcrumb -->
+				<ol class="breadcrumb">
+					<li>首页</li><li>主机</li><li>新增主机</li>
+				</ol>
+				<!--breadcrumb类里 li的展现形式为 111/222/333/444/555 -->
+				<!-- end breadcrumb -->
+
+			</div>
+			<!-- END RIBBON -->
+
+			<!-- MAIN CONTENT -->
+			<div id="content">
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+						<h2 class="page-title txt-color-blueDark">
+							<i class="fa fa-hdd-o"></i>  新增虚拟机
+						</h2>
+					</div>
+					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
+						<ul id="sparks" class="">
+							<li class="sparks-info">
+								<h5> wgq/zj/dl/ljz <span class="txt-color-blue">服务器数量</span></h5>
+								<div class="sparkline txt-color-blue hidden-mobile hidden-md hidden-sm">
+									1300, 1877, 2500, 2577
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- widget grid -->
+				<section id="widget-grid" class="">
+
+					<!-- row -->
+					<div class="row">
+
+						<article class="col-sm-12 col-md-12 col-lg-12">
+
+							<!-- Widget ID (each widget will need unique ID)-->
+							<div class="jarviswidget" id="wid-id-2" data-widget-editbutton="false" data-widget-deletebutton="false" >
+
+								<!-- widget options:
+								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false"> data-widget-editbutton="false" data-widget-deletebutton="false"
+								data-widget-colorbutton="false"
+								data-widget-editbutton="false"
+								data-widget-togglebutton="false"
+								data-widget-deletebutton="false"
+								data-widget-fullscreenbutton="false"
+								data-widget-custombutton="false"
+								data-widget-collapsed="true"
+								data-widget-sortable="false"
+
+								-->
+								<header>
+									<h2>向导 </h2>
+
+								</header>
+
+								<!-- widget div-->
+								<div>
+
+									<!-- widget edit box -->
+									<div class="jarviswidget-editbox">
+										<!-- This area used as dropdown edit box -->
+
+									</div>
+									<!-- end widget edit box -->
+
+									<!-- widget content -->
+									<div class="widget-body fuelux">
+
+										<div class="wizard"  id="vm_wizard">
+											<!--data-restrict="previous"-->
+											<ul class="steps">
+												<li data-target="#step1" class="active">
+													<span class="badge badge-info">1</span>主机配置<span class="chevron"></span>
+												</li>
+												<li data-target="#step2">
+													<span class="badge">2</span>网络配置<span class="chevron"></span>
+												</li>
+												<li data-target="#step3">
+													<span class="badge">3</span>发布基线<span class="chevron"></span>
+												</li>
+												<li data-target="#step4">
+													<span class="badge">4</span>升级补丁<span class="chevron"></span>
+												</li>
+												<li data-target="#step5">
+													<span class="badge">5</span>修改密码<span class="chevron"></span>
+												</li>
+											</ul>
+											<div class="actions">
+												<button type="button" class="btn btn-sm btn-primary btn-prev">
+													<i class="fa fa-arrow-left"></i>Prev
+												</button>
+												<button type="button" onclick="notfinish()" class="btn btn-sm btn-success btn-next" data-last="Finish">
+													Next<i class="fa fa-arrow-right"></i>
+												</button>
+											</div>
+										</div>
+										<div class="step-content">
+											<form class="form-horizontal" id="fuelux-wizard" method="post" >
+												<div class="step-pane active" id="step1">
+													<!-- wizard form starts here -->
+												    <div class="col-sx-12" style="height:20px"></div><!--控制高度 -->
+													  <fieldset>
+																<div  class="form-group">
+																		<label class="col-md-2 control-label" >请选择网络区域  :</label>
+																		<div class="col-md-4">
+																			<select style="width:100%" class="select2" id="select2_1">
+																					<optgroup label="所属网络">
+																						<option value="BG">业务核心</option>
+																						<option value="YW">专网隔离</option>
+																						<option value="YW">办公隔离</option>
+																					</optgroup>
+																			</select>
+																		</div>
+																</div>
+
+																<div  class="form-group">
+																		<label class="col-md-2 control-label" >请选择服务器  :</label>
+																		<div class="col-md-4">
+																			<select style="width:100%" class="select2" id="select2_1">
+																					<optgroup label="宿主服务器">
+																						<option value="VM1">YWHX_VM1</option>
+																						<option value="VM2">YWHX_VM2</option>
+																						<option value="VM2">根据上述操作动态修改</option>
+																					</optgroup>
+																			</select>
+																		</div>
+																</div>
+
+																<div  class="form-group">
+																		<label class="col-md-2 control-label" >请选择网络区域  :</label>
+																		<div class="col-md-4">
+																			<select style="width:100%" class="select2" id="select2_1">
+																					<optgroup label="数据中心">
+																						<option value="WGQ">外高桥数据中心</option>
+																						<option value="ZJ">张江数据中心</option>
+																						<option value="LJZ">陆家嘴数据中心</option>
+																						<option value="DL">大连数据中心</option>
+																					</optgroup>
+																					<optgroup label="所属网络">
+																						<option value="BG">办公网</option>
+																						<option value="YW">业务网</option>
+																					</optgroup>
+																					<optgroup label="宿主服务器">
+																						<option value="VM1">VM1</option>
+																						<option value="VM2">VM2</option>
+																						<option value="VM3">VM3</option>
+																					</optgroup>
+																			</select>
+																		</div>
+																</div>
+
+																<div  class="form-group">
+																		<label class="col-md-2 control-label" >请选择网络区域  :</label>
+																		<div class="col-md-4">
+																			<select style="width:100%" class="select2" id="select2_1">
+																					<optgroup label="数据中心">
+																						<option value="WGQ">外高桥数据中心</option>
+																						<option value="ZJ">张江数据中心</option>
+																						<option value="LJZ">陆家嘴数据中心</option>
+																						<option value="DL">大连数据中心</option>
+																					</optgroup>
+																					<optgroup label="所属网络">
+																						<option value="BG">办公网</option>
+																						<option value="YW">业务网</option>
+																					</optgroup>
+																					<optgroup label="宿主服务器">
+																						<option value="VM1">VM1</option>
+																						<option value="VM2">VM2</option>
+																						<option value="VM3">VM3</option>
+																					</optgroup>
+																			</select>
+																		</div>
+																</div>
+
+													  		<div  class="form-group">
+												            <label class="col-md-2 control-label" >请设置计算机名  :</label>
+												            <div class="col-md-4">
+												            	<input class="form-control" placeholder="输入计算机名" type="text">
+												            </div>
+												            <div class="col-md-6"><button class="btn btn-default" onclick="CheckHostName()">检查是否重名</button></div>
+												        </div>
+	                              <div class="form-group"><!--选操作系统的radiobox -->
+													          <label class="col-md-2 control-label" >请选择操作系统  :</label>
+													          <div class="col-md-10">
+														            <label class="radio radio-inline">
+															              <input type="radio" class="radiobox style-0"  name="style-0a">
+															              <span>RH5.5</span>
+														            </label>
+														            <label class="radio radio-inline">
+															              <input type="radio" class="radiobox style-0"  name="style-0a">
+															              <span>RH6.3</span>
+														            </label>
+														            <label class="radio radio-inline">
+															              <input type="radio" class="radiobox style-0"  name="style-0a">
+															              <span>Win XP</span>
+														            </label>
+														            <label class="radio radio-inline">
+														                <input type="radio" class="radiobox style-0"  name="style-0a">
+														                <span>Win 7</span>
+														            </label>
+														            <label class="radio radio-inline">
+														                <input type="radio" class="radiobox style-0"  name="style-0a">
+														                <span>Win Server 2003</span>
+														            </label>
+														            <label class="radio radio-inline">
+														                <input type="radio" class="radiobox style-0"  name="style-0a">
+														                <span>Win Server 2008</span>
+														            </label>
+													          </div>
+												        </div>
+												        <div class="form-group"><!--选择存储 -->
+												            <label class="col-md-2 control-label" style="margin-top:2%">请选择存储  :</label>
+												                <div style="float:left;margin-top:2%" >
+												                    <label class="radio radio-inline" style="width:100px;margin-left:20%">
+															                  <input type="radio" class="radiobox style-0"  name="datastore">
+															                  <span>DataStore1</span>
+														                </label>
+														            </div>
+														            <div class="col-md-1">
+										                        <canvas id="doughnutChart" height="10" style=";width:90px;height:90px"></canvas>
+
+										                    </div>
+													              <div style="float:left;margin-top:2%;margin-left:2%">
+													              		<label class="radio radio-inline">
+															                  <input type="radio" class="radiobox style-0" name="datastore" >
+															                  <span>DataStore2</span>
+														                </label>
+													              </div>
+													              <div class="col-md-1">
+										                        <canvas id="doughnutChart1" height="9" style=";width:90px;height:90px"></canvas>
+										                    </div>
+												        </div>
+												        <div class="form-group"><!--选择硬盘大小 -->
+												            <label class="col-md-2 control-label" >请选择硬盘大小  :</label>
+												            <div class="col-md-6" style="margin-top:0.5%">
+														         <input type="text" class="slider slider-default" id="sa4" value="1"
+														         data-slider-min="1"
+														         data-slider-max="2048"
+														         data-slider-selection = "before"
+														         data-slider-tooltip = "show"
+														         data-slider-handle="round">
+													          </div>
+												        </div>
+												        <div class="form-group"><!--选择cpu大小 -->
+												            <label class="col-md-2 control-label" >请选择CPU大小  :</label>
+												            <div class="col-md-6" style="margin-top:0.5%">
+														        <input type="text" class="slider slider-default" id="sa_cpu" value="1"
+														         data-slider-min="1"
+														         data-slider-max="32"
+														         data-slider-selection = "before"
+														         data-slider-tooltip = "show"
+														         data-slider-handle="round">
+													          </div>
+												        </div>
+												        <div class="form-group"><!--所属相关信息 -->
+												            <label class="col-md-2 control-label" style="margin-top:1%">所属信息  :</label>
+												            <div class="col-md-6" style="margin-top:0.5%">
+												                <label>请分别选择:所属数据中心，所属网络，所属宿主机</label>
+													                  <select multiple style="width:100%" class="select2" id="select2_1"><i class="fa fa-user" ></i>
+													                      <optgroup label="数据中心">
+													                      	<option value="WGQ">外高桥数据中心</option>
+													                      	<option value="ZJ">张江数据中心</option>
+													                      	<option value="LJZ">陆家嘴数据中心</option>
+													                      	<option value="DL">大连数据中心</option>
+													                      </optgroup>
+													                      <optgroup label="所属网络">
+													                      	<option value="BG">办公网</option>
+													                      	<option value="YW">业务网</option>
+													                      </optgroup>
+													                      <optgroup label="宿主服务器">
+													                      	<option value="VM1">VM1</option>
+													                      	<option value="VM2">VM2</option>
+													                      	<option value="VM3">VM3</option>
+													                      </optgroup>
+													                  </select>
+				                            </div>
+												        </div>
+
+													  </fieldset>
+												</div>
+
+												<div class="step-pane" id="step2">
+													<h3><strong>Step 2 </strong> - Alerts</h3>
+
+													<div class="alert alert-warning fade in">
+														<button class="close" data-dismiss="alert">
+															×
+														</button>
+														<i class="fa-fw fa fa-warning"></i>
+														<strong>Warning</strong> Your monthly traffic is reaching limit.
+													</div>
+
+													<div class="alert alert-success fade in">
+														<button class="close" data-dismiss="alert">
+															×
+														</button>
+														<i class="fa-fw fa fa-check"></i>
+														<strong>Success</strong> The page has been added.
+													</div>
+
+													<div class="alert alert-info fade in">
+														<button class="close" data-dismiss="alert">
+															×
+														</button>
+														<i class="fa-fw fa fa-info"></i>
+														<strong>Info!</strong> You have 198 unread messages.
+													</div>
+
+													<div class="alert alert-danger fade in">
+														<button class="close" data-dismiss="alert">
+															×
+														</button>
+														<i class="fa-fw fa fa-times"></i>
+														<strong>Error!</strong> The daily cronjob has failed.
+													</div>
+
+												</div>
+
+												<div class="step-pane" id="step3">
+													<h3><strong>Step 3 </strong> - Wizard continued</h3>
+													<br>
+													<br>
+													<h1 class="text-center text-primary"> This will be your Step 3 </h1>
+													<br>
+													<br>
+													<br>
+													<br>
+												</div>
+
+												<div class="step-pane" id="step4">
+													<h3><strong>Step 4 </strong> - Wizard continued...</h3>
+													<br>
+													<br>
+													<h1 class="text-center text-danger"> This will be your Step 4 </h1>
+													<br>
+													<br>
+													<br>
+													<br>
+												</div>
+
+												<div class="step-pane" id="step5">
+													<h3><strong>Step 5 </strong> - Finished!</h3>
+													<br>
+													<br>
+													<h1 class="text-center text-success"><i class="fa fa-check"></i> Congratulations!
+													<br>
+													<small>Click finish to end wizard</small></h1>
+													<br>
+													<br>
+													<br>
+													<br>
+												</div>
+
+											</form>
+										</div>
+
+									</div>
+									<!-- end widget content -->
+
+								</div>
+								<!-- end widget div -->
+
+							</div>
+							<!-- end widget -->
+
+						</article>
+						<!-- WIDGET END -->
+
+					</div>
+
+					<!-- end row -->
+
+					<!-- end row -->
+
+				</section>
+				<!-- end widget grid -->
+
+			</div>
+			<!--图表-->
+			<!-- END MAIN CONTENT -->
+
+		</div>
+		<!-- END MAIN PANEL -->
+
+		<!-- PAGE FOOTER -->
+		<div class="page-footer">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<span class="txt-color-white">SmartAdmin 1.8.0 <span class="hidden-xs"> - Web Application Framework</span> © 2014-2015</span>
+				</div>
+
+				<div class="col-xs-6 col-sm-6 text-right hidden-xs">
+					<div class="txt-color-white inline-block">
+						<i class="txt-color-blueLight hidden-mobile">Last account activity <i class="fa fa-clock-o"></i> <strong>52 mins ago &nbsp;</strong> </i>
+						<div class="btn-group dropup">
+							<button class="btn btn-xs dropdown-toggle bg-color-blue txt-color-white" data-toggle="dropdown">
+								<i class="fa fa-link"></i> <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu pull-right text-left">
+								<li>
+									<div class="padding-5">
+										<p class="txt-color-darken font-sm no-margin">Download Progress</p>
+										<div class="progress progress-micro no-margin">
+											<div class="progress-bar progress-bar-success" style="width: 50%;"></div>
+										</div>
+									</div>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<div class="padding-5">
+										<p class="txt-color-darken font-sm no-margin">Server Load</p>
+										<div class="progress progress-micro no-margin">
+											<div class="progress-bar progress-bar-success" style="width: 20%;"></div>
+										</div>
+									</div>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<div class="padding-5">
+										<p class="txt-color-darken font-sm no-margin">Memory Load <span class="text-danger">*critical*</span></p>
+										<div class="progress progress-micro no-margin">
+											<div class="progress-bar progress-bar-danger" style="width: 70%;"></div>
+										</div>
+									</div>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<div class="padding-5">
+										<button class="btn btn-block btn-default">refresh</button>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END PAGE FOOTER -->
+
+		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
+		Note: These tiles are completely responsive,
+		you can add as many as you like
+		-->
+		<div id="shortcut">
+			<ul>
+				<li>
+					<a href="inbox.html" class="jarvismetro-tile big-cubes bg-color-blue"> <span class="iconbox"> <i class="fa fa-envelope fa-4x"></i> <span>Mail <span class="label pull-right bg-color-darken">14</span></span> </span> </a>
+				</li>
+				<li>
+					<a href="calendar.html" class="jarvismetro-tile big-cubes bg-color-orangeDark"> <span class="iconbox"> <i class="fa fa-calendar fa-4x"></i> <span>Calendar</span> </span> </a>
+				</li>
+				<li>
+					<a href="gmap-xml.html" class="jarvismetro-tile big-cubes bg-color-purple"> <span class="iconbox"> <i class="fa fa-map-marker fa-4x"></i> <span>Maps</span> </span> </a>
+				</li>
+				<li>
+					<a href="invoice.html" class="jarvismetro-tile big-cubes bg-color-blueDark"> <span class="iconbox"> <i class="fa fa-book fa-4x"></i> <span>Invoice <span class="label pull-right bg-color-darken">99</span></span> </span> </a>
+				</li>
+				<li>
+					<a href="gallery.html" class="jarvismetro-tile big-cubes bg-color-greenLight"> <span class="iconbox"> <i class="fa fa-picture-o fa-4x"></i> <span>Gallery </span> </span> </a>
+				</li>
+				<li>
+					<a href="profile.html" class="jarvismetro-tile big-cubes selected bg-color-pinkDark"> <span class="iconbox"> <i class="fa fa-user fa-4x"></i> <span>My Profile </span> </span> </a>
+				</li>
+			</ul>
+		</div>
+		<!-- END SHORTCUT AREA -->
+
+		<!--================================================== -->
+
+		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
+		<script src="js/libs/jquery-2.1.1.min.js"></script>
+
+    <script src="js/libs/jquery-ui-1.10.3.min.js"></script>
+		<script src="js/app.config.js"></script>
+		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script>
+		<script src="js/bootstrap/bootstrap.min.js"></script>
+		<script src="js/notification/SmartNotification.min.js"></script>
+		<script src="js/smartwidgets/jarvis.widget.min.js"></script>
+		<script src="js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+		<script src="js/plugin/sparkline/jquery.sparkline.min.js"></script>
+		<script src="js/plugin/jquery-validate/jquery.validate.min.js"></script>
+		<script src="js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+		<script src="js/plugin/select2/select2.min.js"></script>
+		<script src="js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
+		<script src="js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
+		<script src="js/plugin/fastclick/fastclick.min.js"></script>
+				<script src="js/plugin/chartjs/chart.min.js"></script>
+		<!-- Demo purpose only -->
+		<script src="js/demo.min.js"></script>
+
+		<!-- MAIN APP JS FILE -->
+		<script src="js/app.min.js"></script>
+
+		<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
+		<!-- Voice command : plugin -->
+		<script src="js/speech/voicecommand.min.js"></script>
+
+		<!-- SmartChat UI : plugin -->
+		<script src="js/smart-chat-ui/smart.chat.ui.min.js"></script>
+		<script src="js/smart-chat-ui/smart.chat.manager.min.js"></script>
+
+		<!-- PAGE RELATED PLUGIN(S) -->
+		<script src="js/plugin/datatables/jquery.dataTables.min.js"></script>
+		<script src="js/plugin/datatables/dataTables.colVis.min.js"></script>
+		<script src="js/plugin/datatables/dataTables.tableTools.min.js"></script>
+		<script src="js/plugin/datatables/dataTables.bootstrap.min.js"></script>
+		<script src="js/plugin/datatable-responsive/datatables.responsive.min.js"></script>
+		<script src="js/plugin/jqgrid/jquery.jqGrid.min.js"></script>
+		<script src="js/plugin/jqgrid/grid.locale-en.min.js"></script>
+		<script src="js/plugin/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+		<script src="js/plugin/fuelux/wizard/wizard.min.js"></script>
+				<script src="js/plugin/maxlength/bootstrap-maxlength.min.js"></script>
+		<script src="js/plugin/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+		<script src="js/plugin/clockpicker/clockpicker.min.js"></script>
+		<script src="js/plugin/bootstrap-tags/bootstrap-tagsinput.min.js"></script>
+		<script src="js/plugin/noUiSlider/jquery.nouislider.min.js"></script>
+		<script src="js/plugin/ion-slider/ion.rangeSlider.min.js"></script>
+		<script src="js/plugin/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+		<script src="js/plugin/colorpicker/bootstrap-colorpicker.min.js"></script>
+		<script src="js/plugin/knob/jquery.knob.min.js"></script>
+		<script src="js/plugin/x-editable/moment.min.js"></script>
+		<script src="js/plugin/x-editable/jquery.mockjax.min.js"></script>
+		<script src="js/plugin/x-editable/x-editable.min.js"></script>
+		<script src="js/plugin/typeahead/typeahead.min.js"></script>
+		<script src="js/plugin/typeahead/typeaheadjs.min.js"></script>
+		<script type="text/javascript">
+
+
+		// DO NOT REMOVE : GLOBAL FUNCTIONS!
+
+		$(document).ready(function() {
+
+			pageSetUp();
+
+
+			  $('#bootstrap-wizard-1').bootstrapWizard({
+			    'tabClass': 'form-wizard',
+			    'onNext': function (tab, navigation, index) {
+			      var $valid = $("#wizard-1").valid();
+			      if (!$valid) {
+			        $validator.focusInvalid();
+			        return false;
+			      } else {
+			        $('#bootstrap-wizard-1').find('.form-wizard').children('li').eq(index - 1).addClass(
+			          'complete');
+			        $('#bootstrap-wizard-1').find('.form-wizard').children('li').eq(index - 1).find('.step')
+			        .html('<i class="fa fa-check"></i>');
+			      }
+			    }
+			  });
+
+
+			// fuelux wizard
+			  var wizard = $('.wizard').wizard();
+
+			  wizard.on('finished', function (e, data) {
+			    //$("#fuelux-wizard").submit();
+			    //console.log("submitted!");
+
+			    $.smallBox({
+			      title: "Congratulations! Your form was submitted",
+			      content: "<i class='fa fa-clock-o'></i> <i>1 seconds ago...</i>",
+			      color: "#5F895F",
+			      iconSmall: "fa fa-check bounce animated",
+			      timeout: 4000
+			    });
+
+			  });
+
+			    var doughnutOptions = {
+				    //Boolean - Whether we should show a stroke on each segment
+				    segmentShowStroke : true,
+				    //String - The colour of each segment stroke
+				    segmentStrokeColor : "#FFF",
+				    //Number - The width of each segment stroke
+				    segmentStrokeWidth : 2,
+				    //Number - The percentage of the chart that we cut out of the middle
+				    percentageInnerCutout : 40, // This is 0 for Pie charts
+				    //Number - Amount of animation steps
+				    animationSteps : 200,
+				    //String - Animation easing effect
+				    animationEasing : "easeOutBounce",
+				    //Boolean - Whether we animate the rotation of the Doughnut
+				    animateRotate : true,
+				    //Boolean - Whether we animate scaling the Doughnut from the centre
+				    animateScale : false,
+				    //Boolean - Re-draw chart on page resize
+			        responsive: true,
+				    //String - A legend template
+				    legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+			    };
+
+			    var doughnutData = [
+				   {
+				        value: "1.5",
+				        color:"rgba(220,220,220,0.8)",
+				        highlight: "rgba(220,220,220,0.7)",
+				        label: "已用(TB)"
+				    },
+				    {
+				        value: "0.5",
+				        color: "rgba(110,255,0,0.8)",
+				        highlight: "rgba(151,187,205,0.8)",
+				        label: "可用(TB)"
+				    }
+			    ];
+			    var doughnutOptions1 = {
+				    segmentShowStroke : true,
+				    segmentStrokeColor : "#FFF",
+				    segmentStrokeWidth : 2,
+				    percentageInnerCutout : 0, // This is 0 for Pie charts
+				    animationSteps : 200,
+				    animationEasing : "easeOutBounce",
+				    animateRotate : true,
+				    animateScale : false,
+			        responsive: true,
+				    legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+			    };
+			    var doughnutData1 = [
+				   {
+				        value: "0.9",
+				        color:"rgba(220,220,220,0.8)",
+				        label: "已用(TB)"
+				    },
+				    {
+				        value: "1.1",
+				        color: "rgba(110,255,0,1)",
+				        label: "可用(TB)"
+				    }
+			    ];
+			    // render chart
+			    var ctx = document.getElementById("doughnutChart").getContext("2d");
+			    var myNewChart = new Chart(ctx).Doughnut(doughnutData, doughnutOptions);
+          var ctx1 = document.getElementById("doughnutChart1").getContext("2d");
+			    var myNewChart = new Chart(ctx1).Doughnut(doughnutData1, doughnutOptions1);
+
+
+		})
+
+
+		</script>
+	<script>
+			function notfinish(){
+			alert($('#select2_1').find("option:selected").text());
+		}
+</script>
+
+	</body>
+
+</html>

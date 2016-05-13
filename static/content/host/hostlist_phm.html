@@ -1,0 +1,679 @@
+<section id="widget-grid" class="">
+	<!-- row -->
+	<div class="row">
+		<!-- NEW WIDGET START -->
+		<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<!-- Widget ID (each widget will need unique ID)-->
+			<div class="jarviswidget" id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false"
+				 data-widget-deletebutton="false" data-widget-togglebutton="false"  data-widget-sortable="false">
+				<!-- widget options:
+				usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+				data-widget-colorbutton="false"
+				data-widget-editbutton="false"
+				data-widget-togglebutton="false"
+				data-widget-deletebutton="false"
+				data-widget-fullscreenbutton="false"
+				data-widget-custombutton="false"
+				data-widget-collapsed="true"
+				data-widget-sortable="false"
+				-->
+				<header>
+					<span class="widget-icon"> <i class="fa fa-table"></i> </span>
+					<h2>物理机列表</h2>
+         <a href="javascript:void(0)" ><i  data-toggle="tooltip" id="test1" class=" fa fa-download fa-1.5x" style="float:right;height:50%;width:30px;margin-top:8px" onclick="searchtable()" ></i></a>
+         <a href="javascript:void(0)"><i   id="test2"class=" fa fa-upload fa-1.5x" style="float:right;height:50%;width:30px;margin-top:8px" data-toggle="modal" data-target="#hostfile_upload"></i></a>
+         <a href="javascript:void(0)"><i   id="test3"class=" fa fa-plus fa-1.5x" style="float:right;height:50%;width:30px;margin-top:8px" data-toggle="modal" data-target="#phm_add"></i></a>
+				</header>
+				<div><!-- 搜索栏-->
+					<div class="form-group"style="width:100%;"  >
+					    <label class="control-label" style="float:left;width:10%">HostNode:	</label>
+					    <a href="javascript:void(0)" onclick="searchtable(this)" name="oa-vm1">oa-vm1</a>
+					    <a href="javascript:void(0)" onclick="searchtable(this)" style="margin-left:5%" name="oa-vm2">oa-vm2</a>
+					    <a href="javascript:void(0)" onclick="searchtable(this)" style="margin-left:5%" name="oa-vm3">oa-vm3</a>
+					    <a href="javascript:void(0)" onclick="searchtable(this)" style="margin-left:5%" name="oa-vm4">oa-vm4</a>
+					</div>
+					<div style=""><hr style="width:100%;border:0.1px #999999 solid;margin-top:0"></div>
+					<a href="javascript:viod(0)" onclick="searchtable1()" >取消过滤</a>
+				</div>
+								<!-- widget div-->
+				<div>
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox">
+						11111
+					</div>
+					<!-- end widget edit box -->
+					<!-- widget content -->
+					<div class="widget-body no-padding">						
+						<table id="hosttable" class="table table-striped table-bordered table-hover" width="100%">
+							<thead>
+								<tr>
+									<th data-hide="phone">HostNode</th>
+									<th data-class="expand">HostName</th>
+									<th>OS</th>
+									<th data-hide="phone">IPAddress</th>
+								</tr>
+							</thead>
+						</table>			
+					</div>
+					<!-- end widget content -->
+				</div>
+				<!-- end widget div -->
+			</div>
+			<!-- end widget -->
+		</article>
+		<!-- WIDGET END -->
+	</div>
+	<!-- end row -->
+</section>
+<!-- end widget grid -->
+
+<!-- 主机上传模态框-->
+<div class="modal fade" id="hostfile_upload" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" 
+                   data-dismiss="modal" aria-hidden="true">
+                   &times;
+                </button><!-- 右上角的X-->
+                <h4 class="modal-title" id="myModalLabel">
+                   批量导入物理机
+                </h4>
+            </div>
+            <div class="modal-body">
+            <div id="dropz"></div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 主机上传模态框END-->
+
+<!-- 新增物理机模态框-->
+<div class="modal fade" id="phm_add" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel" aria-hidden="true"  >
+    <div class="modal-dialog" style="width:70%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" 
+                   data-dismiss="modal" aria-hidden="true">
+                   &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    创建物理机
+                </h4>
+            </div> <!--模态框的头部 -->
+            <div class="modal-body">
+            		<div class="jarviswidget" id="wid-id-2" data-widget-editbutton="true" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
+								<!-- widget options:
+								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">				
+								data-widget-colorbutton="false"
+								data-widget-editbutton="false"
+								data-widget-togglebutton="false"
+								data-widget-deletebutton="false"
+								data-widget-fullscreenbutton="false"
+								data-widget-custombutton="false"
+								data-widget-collapsed="true"
+								data-widget-sortable="false"			
+								-->
+								<header>
+									<h2>向导  </h2>
+								</header>			
+								<!-- widget div-->
+								<div>				
+									<!-- widget edit box -->
+									<div class="jarviswidget-editbox">
+										<!-- This area used as dropdown edit box -->
+				
+									</div>
+									<!-- end widget edit box -->
+									<!-- widget content -->
+									<div class="widget-body fuelux">
+				
+										<div class="wizard">
+											<ul class="steps">
+												<li data-target="#step1" class="active">
+													<span class="badge badge-info">1</span>服务器选择<span class="chevron"></span>
+												</li>
+												<li data-target="#step2">
+													<span class="badge">2</span>配置<span class="chevron"></span>
+												</li>
+												<li data-target="#step3">
+													<span class="badge">3</span>网络<span class="chevron"></span>
+												</li>
+											</ul>
+											<div class="actions">
+												<button type="button" class="btn btn-sm btn-default btn-prev">
+													<i class="fa fa-arrow-left"></i>Prev
+												</button>
+												<button type="button" class="btn btn-sm btn-info btn-next" data-last="Finish">
+													Next<i class="fa fa-arrow-right"></i>
+												</button>
+											</div>
+										</div>
+										<div class="step-content">
+											<form class="form-horizontal" id="fuelux-wizard" method="post">			
+												<div class="step-pane active" id="step1"> <!--第一步 -->
+												    <div style="width:59%;float:left;"><!--左边区域-step1 -->
+												        <div class="col-sx-12" style="height:20px;"></div><!-- 控制高度-->
+ 												        <div  class="form-group"><!--制造商 -->
+                                    <label class=" control-label" style="width:100px;margin-left:40px;
+                                    	float:left;">制造商:</label>
+														        <div style="margin-left:20px;float:left">
+														            <div class="btn-group" data-toggle="buttons"><!--radio name ：host_provider -->
+														        		    <label name="host_provider" class="btn btn-default" style="width:90px">
+														        		        <input type="radio" name="host_provider" value="hp" />
+														        		        惠普HP </label>
+														        		    <label name="host_provider"class="btn btn-default" style="width:90px">
+														        		        <input type="radio" name="host_provider" value="lenovo" />
+														        		        联想Lenovo </label>
+														        		    <label name="host_provider"class="btn btn-default" style="width:90px">
+														        		    	  <input type="radio" name="host_provider" value="dell" />
+														        		    	  戴尔Dell </label>
+														            </div>
+														        </div>
+																</div><br>
+																<div  class="form-group"><!--cpu个数 -->
+                                    <label class="control-label" style="width:100px;margin-left:40px;
+                                    	float:left;">物理CPU个数:</label>
+														        <div style="margin-left:20px;float:left">
+														            <div class="btn-group" data-toggle="buttons"><!--radio name :host_cpu -->
+														        		    <label name="host_cpu" class="btn btn-default" style="width:60px;">
+														        		        <input type="radio" name="host_cpu" value="1"  />
+														        		        1 </label>
+														        		    <label name="host_cpu" class="btn btn-default" style="width:60px">
+														        		        <input type="radio" name="host_cpu" value="2" />
+														        		        2 </label>
+														        		    <label name="host_cpu" class="btn btn-default" style="width:60px">
+														        		    	  <input type="radio" name="host_cpu" value="4" />
+														        		    	  4 </label>
+														        		    <label name="host_cpu" class="btn btn-default" style="width:60px">
+														        		    	  <input type="radio" name="host_cpu" value="8" />
+														        		    	  8 </label>
+														            </div>
+														        </div>
+																</div><br>											
+																<div  class="form-group"><!--内存 -->
+                                    <label class="control-label" style="width:100px;margin-left:40px;
+                                    	float:left;">内存:</label>
+														        <div style="margin-left:20px;float:left">
+														            <div class="btn-group" data-toggle="buttons"><!--radio name :host_mem -->
+														        		    <label name="host_mem" class="btn btn-default" style="width:60px">
+														        		        <input type="radio" name="host_mem" value="128" />
+														        		        128 </label>
+														        		    <label name="host_mem" class="btn btn-default" style="width:60px">
+														        		        <input type="radio" name="host_mem" value="256" />
+														        		        256 </label>
+														        		    <label name="host_mem" class="btn btn-default" style="width:60px">
+														        		    	  <input type="radio" name="host_mem" value="512" />
+														        		    	  512 </label>
+														            </div>
+														        </div>
+																</div>	<br>
+																<div  class="form-group"><!--可用服务器 -->
+                                    <label class="control-label" style="width:100px;margin-left:40px;
+                                    	float:left;">可用服务器:</label>
+														        <div style="margin-left:20px;float:left;width:270px" >
+																		    <select class="select2" id="host_server" >
+																				    <optgroup label="HP">
+																				        <option value="HP DL580G8 4*ET  12GB">HP DL580G8 4*ET  12GB</option>
+																						    <option value="HP DL580G8 4*ET  24">HP DL580G8 4*ET  24GB</option>
+																						    <option value="HP DL580G8 4*ET  128">HP DL580G8 4*ET  128GB</option>
+																						    <option value="HP DL580G8 4*ET  256">HP DL580G8 4*ET  512GB</option>
+																				    </optgroup>
+																			  </select>
+														        </div>
+																</div>																									
+												   	</div>
+												    <div style="width:1%;float:left;"><!--中间区域-step1 -->
+												        <hr style="height:250px;width:1px;background-color:grey" />
+												    </div>
+												   	<div style="width:40%;float:right;"><!--右边区域-step2 -->
+												   	    <div class="col-sx-12" style="height:15px;"></div><!-- 控制高度-->
+												   	    <div class="form-group">
+												   	        <label class=" control-label" style="width:170px;margin-left:60px;">详情:</label>                                    
+                                    <div style="margin-top:20px">
+                                        <div><label class=" control-label" style="width:40px;margin-left:20px;">cpu:</label>
+                                    	   <input value="" type="text" id="host_detail_cpu" style="width:200px;margin-left:20px;border:none"/></div>
+                                        <div style="margin-top:20px"><label class=" control-label" style="width:40px;margin-left:20px;">内存:</label>
+                                    	  <input type="text" id="host_detail_mem" style="width:200px;margin-left:20px;border:none"/> </div>
+                                        <div style="margin-top:20px"><label class=" control-label" style="width:40px;margin-left:20px;">硬盘:</label>
+                                    	  <input type="text" id="host_detail_drive" style="width:200px;margin-left:20px;border:none"/></div>                                  	                                      	   
+                                    </div>
+												   	    </div>
+												   	</div>				
+												</div>				
+												<div class="step-pane" id="step2"> <!--第二步 -->
+												    <div style="width:59%;float:left;"><!--左边区域-step2-->
+												        <div class="col-sx-12" style="height:20px;"></div><!-- 控制高度-->
+ 												        <div  class="form-group"><!--网络区域 -->
+                                    <label class="control-label" style="width:100px;margin-left:40px;
+                                    	float:left;">网络区域:</label>
+														        <div style="margin-left:20px;float:left;width:270px;" name="config_netarea">
+																		    <select class="select2 state-success" id="config_netarea" >
+																				    <optgroup label="外高桥">
+																				        <option value="wgq_gl">外高桥隔离</option>
+																						    <option value="wgq_jr">外高桥接入</option>
+																						    <option value="wgq_wg1">外高桥网管一区</option>
+																						    <option value="wgq_wg3">外高桥网管三区</option>
+																				    </optgroup>
+																			  </select>
+														        </div>
+																</div>																
+																<div  class="form-group"><!--设备机柜 -->
+                                    <label class="control-label" style="width:100px;margin-left:40px;
+                                    	float:left;">设备位置:</label>
+														        <div style="margin-left:20px;float:left">
+                                        <div name="config_cabinet"class="input-group" >
+                                            <span class="input-group-addon">机柜</span>
+                                            <input name="config_cabinet" type="text" class="form-control" placeholder="请输入'K,L…'排" >
+                                        </div>													            
+														        </div>
+																</div>
+																<div  class="form-group"><!--设备位置 -->
+														        <div style="margin-left:160px;float:left">
+                                        <div name="config_location" class="input-group">
+                                            <span class="input-group-addon">位置</span>
+                                            <input name="config_location" type="text" class="form-control" placeholder="例:'3U-5U'">
+                                        </div>													            
+														        </div>																    
+																</div>																
+																<div  class="form-group"><!--操作系统 -->
+                                    <label class="control-label" style="width:100px;margin-left:40px;
+                                    	float:left;">操作系统:</label>
+														        <div style="margin-left:20px;float:left">
+														            <div class="btn-group" data-toggle="buttons"><!--radio name :host_mem -->
+														        		    <label class="btn btn-default" style="width:60px">
+														        		        <input type="radio" name="host_mem" value="128" />
+														        		        128 </label>
+														        		    <label class="btn btn-default" style="width:60px">
+														        		        <input type="radio" name="host_mem" value="256" />
+														        		        256 </label>
+														        		    <label class="btn btn-default" style="width:60px">
+														        		    	  <input type="radio" name="host_mem" value="512" />
+														        		    	  512 </label>
+														            </div>
+														        </div>
+																</div>	
+																<div  class="form-group"><!--基线 -->
+                                    <label class="control-label" style="width:100px;margin-left:40px;
+                                    	float:left;"> 基线:</label>
+														        <div style="margin-left:20px;float:left;width:270px" >
+                                        <div class="radio">
+														            	<label>
+														            		<input type="radio" class="radiobox style-0" name="config_baseline" value="RHEL 6.3 外高桥基线" >
+														            		<span>RHEL 6.3 外高桥基线</span> 
+														            	</label>
+														            </div>
+														            <div class="radio">
+														            	<label>
+														            		<input type="radio" class="radiobox style-0" name="config_baseline" value="RHEL 6.3 张江基线">
+														            		<span>RHEL 6.3 张江基线</span> 
+														            	</label>
+														            </div>
+														        </div>
+																</div>	
+																<div  class="form-group"><!--主机名 -->
+																
+                                    <label class="control-label" style="width:100px;margin-left:40px;
+                                    	float:left;"> 主机名:</label>
+														        <div name="config_hostname"style="margin-left:20px;float:left;width:270px" >
+                                        <input name="config_hostname"class="form-control" type="text" style="width:270px">
+														        </div>
+																</div>		
+																<div  class="form-group"><!--管理员密码 -->
+                                    <label class="control-label" style="width:100px;margin-left:40px;
+                                    	float:left;"> 管理员密码:</label>
+														        <div name="config_password" style="margin-left:20px;float:left;width:270px" >
+                                        <input name="config_password" class="form-control" type="password" style="width:270px" >
+														        </div>
+																</div>	
+																<div  class="form-group"><!--管理员密码确认-->
+                                    <label class="control-label" style="width:100px;margin-left:40px;
+                                    	float:left;"> 确认密码:</label>
+														        <div name="config_password_ensure" style="margin-left:20px;float:left;width:270px" >
+                                        <input name="config_password_ensure" class="form-control" type="password" style="width:270px" >
+														        </div>
+																</div>																								
+												   	</div><!--左边div结束 -->
+												    <div style="width:1%;float:left;"> <!--中间区域-step2-->
+												        <hr style="height:400px;width:1px;background-color:grey" />
+												    </div><!--中间div结束-->
+												   	<div style="width:40%;float:right;"><!--右边区域-step2->
+												   	    <div class="col-sx-12" style="height:15px;"></div><!-- 控制高度-->
+												   	    <div class="form-group">
+												   	        <label class=" control-label" style="width:170px;margin-left:20px;">详情:</label>                                    
+                                    <div style="margin-top:20px">
+                                    </div>
+												   	    </div>
+												   	</div><!--右边div结束-->
+												</div>				
+												<div class="step-pane" id="step3"> <!--第三步 -->
+												    <div style="width:59%;float:left;" id="step3_leftpart"><!--左边区域-step3-->
+												        <div class="col-sx-12" style="height:20px;"></div><!-- 控制高度-->
+												        <div  class="form-group"><!--逻辑网卡 -->
+                                    <label class=" control-label" style="width:100px;margin-left:40px;
+                                    	float:left;">逻辑网卡:</label>
+														        <div style="margin-left:20px;float:left">
+														            <div class="btn-group" data-toggle="buttons"><!--逻辑网卡 -->
+														        		    <label class="btn btn-default" style="width:120px">
+														        		        <input type="radio" name="network_logicalnetworkcard" value="singlenetworkcard" />
+														        		        单网卡 </label>
+														        		    <label class="btn btn-default" style="width:120px">
+														        		        <input type="radio" name="network_logicalnetworkcard" value="doublenetworkcard" />
+														        		        双网卡绑定 </label>
+														            </div>
+														        </div>
+																</div>
+																<div  class="form-group"><!--物理网卡1 -->
+                                    <label class=" control-label" style="width:100px;margin-left:40px;
+                                    	float:left;">物理网卡:</label>
+														        <div style="margin-left:20px;float:left;width:270px">
+                                        <select class="select2" id="network_physicalnetworkcard1" >
+																				    <optgroup label="万兆">
+																				        <option value="WZ_1">-------1</option>
+																						    <option value="WZ_2">-------2</option>
+																						    <option value="WZ_3">-------3</option>
+																						    <option value="WZ_4">-------4</option>
+																				    </optgroup>
+																			  </select>
+														        </div>
+																</div>
+																<div  class="form-group"><!--物理网卡 2-->
+                                    <label class=" control-label" style="width:100px;margin-left:40px;
+                                    	float:left;">物理网卡:</label>
+														        <div style="margin-left:20px;float:left;width:270px">
+                                        <select class="select2" id="network_physicalnetworkcard2" >
+																				    <optgroup label="万兆">
+																				        <option value="WZ_1">-------1</option>
+																						    <option value="WZ_2">-------2</option>
+																						    <option value="WZ_3">-------3</option>
+																						    <option value="WZ_4">-------4</option>
+																				    </optgroup>
+																			  </select>
+														        </div>
+																</div>
+																<div  class="form-group"><!--双网卡绑定参数-->
+                                    <label class=" control-label" style="width:100px;margin-left:40px;
+                                    	float:left;">双网卡绑定参数:</label>
+														        <div style="margin-left:20px;float:left;width:270px">
+                                        <input class="form-control" type="text" style="width:270px">
+														        </div>
+																</div>
+																<div  class="form-group" id="network_ip" ><!--IP地址-->
+                                    <label class="control-label" style="width:100px;margin-left:40px;
+                                    	float:left;">IP地址及网关:</label>
+														        <div style="margin-left:20px;float:left;width:370px;" >
+                                        <div class="input-group" style="float:left">
+                                            <span class="input-group-addon" style="width:50px">IP  </span>
+                                            <input type="text" class="form-control" style="width:220px" >
+                                        </div>	
+                                        <input type="button" class="btn btn-default" style="margin-left:30px" onclick="network_addnewip()" value="新增Ip"/>
+                                        <div class="input-group" style="margin-top:10px">
+                                            <span class="input-group-addon" style="width:50px">网关</span>
+                                            <input type="text" class="form-control" style="width:220px" placeholder="默认为空" >
+                                        </div>
+														        </div>
+																</div>															
+												    </div>
+												    <div style="width:1%;float:left;">
+												        <hr style="height:300px;width:1px;background-color:grey" id="step3_hr"/>
+												    </div>
+												    <div style="width:40%;float:right;"><!--右边区域 -->
+												    </div>
+												</div>				
+											</form>
+										</div>
+				
+									</div>
+									<!-- end widget content -->
+				
+								</div>
+								<!-- end widget div -->
+				
+							</div>  
+     
+            </div><!--模态框的身体 -->
+            
+            
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 新增物理机模态框END-->
+<script>
+    function make_radio_border_error(radio)
+    {
+        radio.eq(0).css("border-left","1px #FF0000 solid").css("border-top","1px #FF0000 solid").css("border-bottom","1px #FF0000 solid");
+        for (var i=1;i<radio.length;i++)
+        {
+            	radio.eq(i).css("border-top","1px #FF0000 solid").css("border-bottom","1px #FF0000 solid");
+        }
+        radio.eq(radio.length-1).css("border-right","1px #FF0000 solid");
+    }
+    function make_radio_border_correct(radio)
+    {
+        radio.eq(0).css("border-left","1px #00E100 solid").css("border-top","1px #00E100 solid").css("border-bottom","1px #00E100 solid");
+        for (var i=1;i<radio.length;i++)
+        {
+            	radio.eq(i).css("border-top","1px #00E100 solid").css("border-bottom","1px #00E100 solid");
+        }
+        radio.eq(radio.length-1).css("border-right","1px #00E100 solid");
+    }
+</script>
+<script type="text/javascript">
+	pageSetUp();
+
+	var pagefunction = function() { //进入页面就加载
+$("#test1").
+            tooltip({
+            trigger:'hover',
+            html:true,
+            title:'Test'})
+$("#test2").
+            tooltip({
+            trigger:'hover',
+            html:true,
+            title:'批量导入物理机'})
+    $("#test3").
+            tooltip({
+            trigger:'hover',
+            title:'新建一台物理机'})
+     // $("input[name='host_cpu']").change(function(){
+          //var host_cpu_value =  $("input[name='host_cpu']:checked").val();
+          //$("#host_detail_cpu").attr("value",host_cpu_value);
+          //switch (host_cpu_value){
+          //    case ("1"):
+          //       $("#host_detail_cpu").attr("value",host_cpu_value);
+          //}
+      	 //填充内容
+        	//})
+      //$("input[name='host_mem']").change(function(){
+          //var host_cpu_value =  $("input[name='host_mem']:checked").val();
+          //$("#host_detail_mem").attr("value",host_cpu_value);
+          //switch (host_cpu_value){
+          //    case ("1"):
+          //       $("#host_detail_cpu").attr("value",host_cpu_value);
+          //}
+      	 //填充内容
+        	//})		
+		//console.log("cleared");
+		/* BASIC ;*/
+	  		var responsiveHelper_hosttable = undefined;	//加载hosttable
+	  		var breakpointDefinition = {
+	  			tablet : 1024,
+	  			phone : 480
+	  		};
+	  	/* COLUMN SHOW - HIDE */
+	  	var htable =$('#hosttable').DataTable({
+	  		"ajax": 'oa.json',
+	  		"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'l C>r>"+
+	  				"t"+
+	  				"<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-sm-6 col-xs-12'p>>",
+	  		"autoWidth" : true,
+	  		"preDrawCallback" : function() {
+	  			// Initialize the responsive datatables helper oNce.
+	  			if (!responsiveHelper_hosttable) {
+	  				responsiveHelper_hosttable = new ResponsiveDatatablesHelper($('#hosttable'), breakpointDefinition);
+	  			}
+	  		},
+	  		"rowCallback" : function(nRow) {
+	  			responsiveHelper_hosttable.createExpandIcon(nRow);
+	  		},
+	  		"drawCallback" : function(oSettings) {
+	  			responsiveHelper_hosttable.respond();
+	  		}			
+	  	});
+	  	/* END COLUMN SHOW - HIDE */
+	  };
+	  // load related plugins
+	  loadScript("./js/plugin/datatables/jquery.dataTables.min.js", function(){
+	  	loadScript("./js/plugin/datatables/dataTables.colVis.min.js", function(){
+	  		loadScript("./js/plugin/datatables/dataTables.tableTools.min.js", function(){
+	  			loadScript("./js/plugin/datatables/dataTables.bootstrap.min.js", function(){
+	  				loadScript("./js/plugin/datatable-responsive/datatables.responsive.min.js", pagefunction)
+	  			});
+	  		});
+	  	});
+	  });//加载hosttable--- END
+	
+    var wizard = $('.wizard').wizard();//加载wizard
+    var wizard_step =$('.wizard');//定义wizard下一步操作。
+    $('.wizard').on('change', function(event, data) {
+        switch (data.step)
+        {
+            case 1 :  //wizard的第一步，如果都选中了才能继续。
+            if ($("input[name='host_provider']").is(':checked') &&
+                $("input[name='host_cpu']").is(":checked")     &&
+                $("input[name='host_mem']").is(":checked"))
+              {
+                make_radio_border_correct($("label[name='host_provider']"));
+                make_radio_border_correct($("label[name='host_cpu']"));
+                make_radio_border_correct($("label[name='host_mem']"));
+                return 1;
+              }
+            else
+            	{ 
+            	    if(!$("input[name='host_provider']").is(':checked'))
+            	    {
+            	    	make_radio_border_error($("label[name='host_provider']"));
+            	    	}
+            	    if(!$("input[name='host_cpu']").is(':checked'))
+            	    {
+            	    	make_radio_border_error($("label[name='host_cpu']"));
+            	    	}
+            	    if(!$("input[name='host_mem']").is(':checked'))
+            	    {
+            	    	make_radio_border_error($("label[name='host_mem']"));
+            	    	}
+                return e.preventDefault();
+            	}
+            break;
+            case 2 : 
+            if (data.direction=="previous"){return 1;}
+            if ($.trim( $("input[name='config_cabinet']").val()) !=""   &&
+                $.trim( $("input[name='config_location']").val()) !=""  &&
+                $("input[name='config_baseline']").is(":checked")       &&
+                $.trim( $("input[name='config_hostname']").val()) !=""  &&
+                $.trim( $("input[name='config_password']").val()) !=""  &&
+                $.trim( $("input[name='config_password_ensure']").val()) !=""  
+               )
+               {return 1;}
+            else
+            	{
+            	    if ($.trim( $("input[name='config_cabinet']").val()) ==="" )
+            	    { $("div[name='config_cabinet']").css("border","1px #FF0000 solid") }
+            	    if ($.trim( $("input[name='config_location']").val()) ==="" )
+            	    { $("div[name='config_location']").css("border","1px #FF0000 solid") }
+            	    if (!$("input[name='config_baseline']").is(":checked"))
+            	    { make_radio_border_error($("input[name='config_baseline']")); }
+            	    if ($.trim( $("input[name='config_hostname']").val()) ==="" )
+            	    { $("input[name='config_hostname']").css("border","1px #FF0000 solid") }
+            	    if ($.trim( $("input[name='config_password']").val()) ==="" )
+            	    { $("input[name='config_password']").css("border","1px #FF0000 solid") }
+            	    if ($.trim( $("input[name='config_password_ensure']").val()) ==="" )
+            	    { $("input[name='config_password_ensure']").css("border","1px #FF0000 solid") }
+            	    return e.preventDefault();
+              }
+            break;
+        	}
+    });
+		wizard.on('finished', function (e, data) {
+			$('#phm_add').modal('hide');
+			var progressbar = "<div class='progress progress-striped active' style='width:280px;height:16px'>" +
+                        "<div class='progress-bar progress-bar-success' role='progressbar' id='processbar'"        + 
+                        "aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' name='0'"               + 
+                        "style='width:0%;'>"                                                     +
+                        "<span id='processspan'>processing</span></div></div>"         ;
+      var hostname = $("input[name='config_hostname']").val();
+      var hostos = $("input[name='config_baseline']:checked").val();
+			$("#hosttable").DataTable().row.add([hostname,progressbar,hostos,4]).draw();
+			run();
+		  //$.smallBox({
+		  //  title: "Submitting",
+		  //  content: "<i class='fa fa-clock-o'></i> <i>1 seconds ago...</i>",
+		  //  color: "#5F895F",
+		  //  iconSmall: "fa fa-check bounce animated",
+		  //  timeout: 4000
+		  //});
+		  
+		});
+	
+
+</script>
+<script>
+	
+	
+	      function run(){
+	      	  var p = Number($("#processbar").attr('name'));
+            p+=5;
+            $("#processbar").attr('name',p);
+            $("#processbar").css("width",p+"%");
+            if(p<100){
+                var timer=setTimeout("run()",100);
+            }else{
+                alert("物理机创建完成！");
+                $("#processspan").html("done!");
+            }
+       }
+    function network_addnewip(){
+    	 var height_hr = $("#step3_hr").height();//动态控制分割线的长度
+    	 $("#step3_hr").height(height_hr + 80);
+
+    	 var temp =			"<div  class='form-group'>"                                            +
+                      "<label class='control-label' style='width:100px;margin-left:40px;"    +
+                      "float:left;'>新增IP:</label>"                                         +
+											"<div style='margin-left:20px;float:left;width:370px;'id='network_ip'>"+
+                      "<div class='input-group' style='float:left'>"                         +
+                      "<span class='input-group-addon' style='width:50px'>IP  </span>"       +
+                      "<input type='text' class='form-control' style='width:220px' >"        +
+                      "<input type='button' class='btn btn-default' style='margin-left:30px'"+
+                      " onclick='network_deletenewip()' value='取 消'/>"                     +
+                      "</div>"                                                               +
+                      "<div class='input-group' style='margin-top:10px'>"                    +
+                      "<span class='input-group-addon' style='width:50px'>网关</span>"       +
+                      "<input type='text' class='form-control' style='width:220px'"          +
+                      "placeholder='默认为空' >"                                             +
+                      "</div>"                                                               +
+											"</div>"                                                               +
+											"</div>"                                                          ;
+    	
+    	
+    	
+        $("#step3_leftpart").append(temp);
+        
+        
+        
+        
+    }
+    function network_deletenewip(){
+    
+    }
+    function searchtable(obj)
+    {
+       $("#hosttable").DataTable().column("0").search($(obj).attr('name')).column("2").search("2003").draw();
+    }
+    function searchtable1()
+    {
+        $("#hosttable").DataTable().column("").search(" ").draw();
+    }
+</script>
